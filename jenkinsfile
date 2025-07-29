@@ -4,35 +4,35 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo '🔨 Building the project...'
-                // sh 'pip install -r requirements.txt'
+                echo '🔨 Building the application...'
+                // Example build command:
+                // sh 'npm install' or 'mvn clean install'
             }
         }
 
         stage('Test') {
             steps {
                 echo '🧪 Running tests...'
-                // sh 'pytest tests/' or any test command
+                // Example test command:
+                // sh 'npm test' or 'mvn test'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo '🚀 Simulating deployment...'
-                // sh './deploy.sh' or echo to simulate
+                echo '🚀 Deploying the application...'
+                // Example deploy command:
+                // sh './deploy.sh' or use Docker/K8s commands
             }
         }
     }
 
     post {
         success {
-            echo '✅ CI Pipeline completed successfully!'
+            echo '✅ Pipeline completed successfully!'
         }
         failure {
-            echo '❌ CI Pipeline failed.'
-        }
-        always {
-            echo '📌 Always runs - logging, notifications, etc.'
+            echo '❌ Pipeline failed. Check logs for errors.'
         }
     }
 }
