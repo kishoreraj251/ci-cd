@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo '🔨 Building the project...'
+                // sh 'pip install -r requirements.txt'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo '🧪 Running tests...'
+                // sh 'pytest tests/' or any test command
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo '🚀 Simulating deployment...'
+                // sh './deploy.sh' or echo to simulate
+            }
+        }
+    }
+
+    post {
+        success {
+            echo '✅ CI Pipeline completed successfully!'
+        }
+        failure {
+            echo '❌ CI Pipeline failed.'
+        }
+        always {
+            echo '📌 Always runs - logging, notifications, etc.'
+        }
+    }
+}
